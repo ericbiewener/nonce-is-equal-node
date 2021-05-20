@@ -14,7 +14,4 @@ module.exports = async function (fastify, opts) {
       .code(200)
       .send(fs.readFileSync(path.join(ASSETS_DIR, "index.html"), 'utf-8'));
   });
-  fastify.get("/test-script.js", async function (request, reply) {
-    reply.type("text/javascript").send(fs.readFileSync(path.join(ASSETS_DIR, "test-script.js"), 'utf-8'));
-  });
 };

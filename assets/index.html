@@ -2,26 +2,26 @@
 <html>
   <head>
     <title>Nonce Node Test</title>
-    <script id="foo" src="/test-script.js" nonce="abc123"></script>
+    <script id="foo" src="http://aws-website-testingthis-acl27.s3.amazonaws.com/test-file.js" nonce="abc123"></script>
   </head>
   <body>
     <h1>Nonce Node Test</h1>
     <script nonce="abc123">
       const originalScript = document.getElementById("foo");
       const script = document.createElement("script");
-      
+
       script.src = originalScript.src;
       script.nonce = originalScript.nonce;
       script.id = originalScript.id;
 
       console.log("original script", {
-        src: originalScript.scr,
+        src: originalScript.src,
         nonce: originalScript.nonce,
         id: originalScript.id,
       });
 
       console.log("new script", {
-        src: script.scr,
+        src: script.src,
         nonce: script.nonce,
         id: script.id,
       });
