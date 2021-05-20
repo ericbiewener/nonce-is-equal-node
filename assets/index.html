@@ -2,16 +2,31 @@
 <html>
   <head>
     <title>Nonce Node Test</title>
-    <script src="/test-script.js" nonce="abc123"></script>
+    <script id="foo" src="/test-script.js" nonce="abc123"></script>
   </head>
   <body>
     <h1>Nonce Node Test</h1>
     <script nonce="abc123">
-      const originalScript = document.querySelector('script')
-      const script = document.createElement('script');
-      script.src = "/test-script.js"
-      script.nonce = "abc123"
-      console.log('isEqualNode', script.isEqualNode(originalScript))
+      const originalScript = document.getElementById("foo");
+      const script = document.createElement("script");
+      
+      script.src = originalScript.src;
+      script.nonce = originalScript.nonce;
+      script.id = originalScript.id;
+
+      console.log("original script", {
+        src: originalScript.scr,
+        nonce: originalScript.nonce,
+        id: originalScript.id,
+      });
+
+      console.log("new script", {
+        src: script.scr,
+        nonce: script.nonce,
+        id: script.id,
+      });
+      
+      console.log("isEqualNode", script.isEqualNode(originalScript));
     </script>
   </body>
 </html>
