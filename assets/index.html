@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nonce Node Test</title>
+    <script src="/test-script.js" nonce="abc123"></script>
+  </head>
+  <body>
+    <h1>Nonce Node Test</h1>
+    <script nonce="abc123">
+      const originalScript = document.querySelector('script')
+      const script = document.createElement('script');
+      script.src = "/test-script.js"
+      script.nonce = "abc123"
+      console.log('isEqualNode', script.isEqualNode(originalScript))
+    </script>
+  </body>
+</html>
