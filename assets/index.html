@@ -10,9 +10,9 @@
       const originalScript = document.getElementById("foo");
       const script = document.createElement("script");
 
-      script.src = originalScript.src;
-      script.nonce = originalScript.nonce;
-      script.id = originalScript.id;
+      script.setAttribute("src", originalScript.src)
+      script.setAttribute("nonce", originalScript.nonce)
+      script.setAttribute("id", originalScript.id)
 
       console.log("original script", {
         src: originalScript.src,
